@@ -1,0 +1,264 @@
+﻿<div ng-controller="EmployeeRegController">
+        <div class="Container">
+            <form class="form-horizontal">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend class="FontHead">Employee Registration</legend>
+                    <!-- Text input-->
+
+
+                    <div class="col-md-4">
+                        <div class=" form-group ">
+                            <label class=" control-label col-md-3 FontLabel" for="EmployeeId">
+                                Empoyee Id
+                            </label>
+                            <div class=" col-md-6">
+                                <input id="EmployeeId" name="EmployeeId" type="text" placeholder="Enter EmployeeId" ng-model="EmpId" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="EmployeeName">Employee Name</label>
+                            <div class=" col-md-6">
+                                <input id="EmployeeName" name="EmployeeName" type="text" placeholder="Enter Employee Name" ng-model="EmpName" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="age">Age</label>
+                            <div class=" col-md-6">
+                                <input id="age" name="Age" type="text" placeholder="Enter age" ng-model="EmpAge" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="DOB">DOB</label>
+                            <div class='input-group date  col-md-6 '>
+                                <input type='text' id="DOB" ng-model="Dob" class="form-control input-md" /><i class="fa fa-calendar"> </i>
+
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="StreetAddress">Street Address</label>
+                            <div class=" col-md-6">
+                                <input id="StreetAddress" name="Street Address" type="text" placeholder="Enter Street Address" ng-model="Address" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="PermanentAddress">Permanent Address</label>
+                            <div class=" col-md-6">
+                                <input id="PermanentAddress" name="Permanent Address" type="text" placeholder="Enter Permanent Address" ng-model="PAddress" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <div class="row">
+                                <label class="control-label col-md-3">Gender</label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="femaleRadio" ng-model="EmpGender" ng-value='"Female"' name="Gender">Female
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="maleRadio" ng-model="EmpGender" ng-value='"Male"' name="Gender">Male
+                                </label>
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="PhoneNumber">Phone Number</label>
+                            <div class=" col-md-6">
+                                <input id="PhoneNumber" name="PhoneNumber" type="text" placeholder="Enter Phone Number" ng-model="phNO" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="EmailId">Email Id</label>
+                            <div class=" col-md-6">
+                                <input id="EmailId" name="EmailId" type="text" placeholder="Enter Email Id" class="form-control input-md" ng-model="Email" required="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="PostalCode">Postal Code</label>
+                            <div class=" col-md-6">
+                                <input id="PostalCode" name="PostalCode" type="text" placeholder="Enter Postal Code" class="form-control input-md" ng-model="Postalcode" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="PassportNumber">Passport Number</label>
+                            <div class=" col-md-6">
+                                <input id="PassportNumber" name="PassportNumber" type="text" placeholder="Enter Passport Number" class="form-control input-md" ng-model="Passnumber" required="">
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="PassportExpiryDate">Passport Expiry Date</label>
+                            <div class='input-group date  col-md-6'>
+                                <input type='text' id='PassportExpiryDate' class="form-control" ng-model="Passexpdate" /><i class="fa fa-calendar"> </i>
+
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="LicenceNumber">Licence Number</label>
+                            <div class=" col-md-6">
+                                <input id="LicenceNumber" name="LicenceNumber" type="text" placeholder="Enter Licence Number" ng-model="LicenceNo" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="EmiratesId">Emirates Id</label>
+                            <div class=" col-md-6">
+                                <input id="EmiratesId" name="EmiratesId" type="text" placeholder="Enter Emirates Id" ng-model="EmirNo" class="form-control input-md" required="">
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="EmiratesIDExpiryDate">Emirates  Expiry Date</label>
+                            <div class='input-group date  col-md-6'>
+                                <input type='text' id='EmiratesIDExpiryDate' class="form-control" ng-model="EmirExp" /><i class="fa fa-calendar"> </i>
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="BloodGroup">Blood Group</label>
+                            <div class="col-md-6">
+                                <select id="BloodGroup" name="BloodGroup" class="form-control" ng-model="Blood">
+                                    <option value="-1">Select</option>
+                                    <option value="1">A+</option>
+                                    <option value="2">B+</option>
+                                    <option value="3">AB+</option>
+                                    <option value="4">O+</option>
+                                    <option value="5">A-</option>
+                                    <option value="6">B-</option>
+                                    <option value="7">AB-</option>
+                                    <option value="8">O-</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="Nationality">Nationality</label>
+                            <div class=" col-md-6">
+                                <input id="Nationality" name="Nationality" type="text" placeholder="Enter Nationality" class="form-control input-md" ng-model="Nationality" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="Qualification">Qualification</label>
+                            <div class=" col-md-6">
+                                <input id="Qualification" name="Qualification" type="text" placeholder="Enter Qualification" ng-model="Qualification" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="DateOfJoin">Date Of Join</label>
+                            <div class='input-group date  col-md-6'>
+                                <input type='text' id='DateOfJoin' class="form-control" ng-model="DOJ" /><i class="fa fa-calendar"> </i>
+                            </div>
+                        </div>
+                        @*<div class=" form-group ">
+                            <label class="control-label col-md-3" for="YearCompleted">Year Completed</label>
+                            <div class=" col-md-6">
+                                <input id="YearCompleted" name="YearCompleted" type="text" placeholder="Enter YearCompleted" class="form-control input-md" required="">
+                            </div>
+                        </div>*@
+
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="Role">Role</label>
+                            <div class=" col-md-6">
+                                <input id="Role" name="Role" type="text" placeholder="Enter Role" ng-model="Rol" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="Department">Department</label>
+                            <div class=" col-md-6">
+                                <input id="Department" name="Department" type="text" placeholder="Enter Department" ng-model="Department" class="form-control input-md" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="Salary">Salary</label>
+                            <div class=" col-md-6">
+                                <input id="Salary" name="Salary" type="text" placeholder="Enter Salary" class="form-control input-md" ng-model="Sal" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <div class="row">
+                                <label class="control-label col-md-3">Employee Type</label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="Supp" ng-value='"Supplier"' name="EmpType " ng-model="emptyp">Supplier
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" id="Comp" ng-value='"CompanyEmployee"' name="EmpType" ng-model="emptyp">Company Employee
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="ContactName"> Emergency Contact Name</label>
+                            <div class=" col-md-6">
+                                <input id="ContactName" name="ContactName" type="text" placeholder="Enter Contact Name" class="form-control input-md" ng-model="ContactName" required="">
+                            </div>
+                        </div>
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="ContactNo"> Emergency Contact Number</label>
+                            <div class=" col-md-6">
+                                <input id="ContactNo" name="ContactNo" type="text" placeholder="Enter Contact Number" class="form-control input-md" ng-model="ContactNo" required="">
+                            </div>
+                        </div>
+
+                        <div class=" form-group ">
+                            <label class="control-label col-md-3" for="Relation"> Relation</label>
+                            <div class=" col-md-6">
+                                <input id="Relation" name="Relation" type="text" placeholder="Relation" class="form-control input-md" ng-model="Relation" required="">
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            <button button id="Save" name="Save" class=" button" ng-click="AddEmployee()">  Save   </button>
+                        </div>
+                        <!-- </div> -->
+                        <!-- <div class="form-group"> -->
+                        <div class="col-md-2">
+                            <button id="Update" name="Update" class="btn btn-success">Update</button>
+                        </div>
+                        <!--  </div> -->
+                        <!-- <div class="form-group"> -->
+                        <div class="col-md-2">
+                            <button id="Reset" name="Reset" class="btn btn-success">Reset</button>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+<script type="text/javascript">
+    $(function () {
+        $("#DOB").datepicker();
+        $("#PassportExpiryDate").datepicker();
+        $("#EmiratesIDExpiryDate").datepicker();
+        $("#DateOfJoin").datepicker();
+        $("#DOB").datepicker("show");
+    });
+</script>
+
