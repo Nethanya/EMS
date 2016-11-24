@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1186,7 +1187,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\EmployeeRegistration\EmployeeRegistration.cshtml" />
-    <Content Include="Views\EmployeeRegistration\Index.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1218,7 +1218,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53247</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53215/</IISUrl>
+          <IISUrl>http://localhost:20044/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

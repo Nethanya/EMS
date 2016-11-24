@@ -22,6 +22,7 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
         {
             testcontext Testcxt = new testcontext();
             Testcxt.Detail.Add(Datas);
+            Testcxt.SaveChanges();
             return new JsonResult();
         }
 

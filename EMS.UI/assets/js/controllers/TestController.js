@@ -1,28 +1,46 @@
 ﻿
-emsApp.controller('mycntlr', function ($scope) {
-    alert("Controller!!");
+emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
 
 
 
-    //$scope.SaveData = function () {
-    //    // use $.param jQuery function to serialize data from JSON or othe wise we write json.stringyfy (data) at time of passing data
-    //    var Datas = $.param({
 
-    //        NameVm: $Scope.Name,
-    //        EmailVm: $Scope.Email,
-    //        SubjectVm: $Scope.Subject,
-    //        CommentVm: $Scope.Comment
+    $scope.SaveData = function () {
+        alert('click');
 
-    //    });
-    //    //CAlling the service
+        // use $.param jQuery function to serialize data from JSON or othe wise we write json.stringyfy (data) at time of passing data
+        var data = new Object();
+        data.NameVm = $scope.Name;
+        data.EmailVm = $scope.Email;
+        data.SubjectVm = $scope.Subject;
+        data.CommentVm = $scope.Comment;
 
-    //    $http.post({
-    //        method:'POST',
-    //        url: 'Test\Adddetails',
-    //        data: Datas
+        //CAlling the service
 
-    //    });
+        //this.$http({
+        //    method: 'POST',
+        //    url: '../Test/Adddetails',
+        //    data: Datas
 
-    //};
+        //});
 
-});
+        $http.post("../Test/Adddetails", data)
+            .success(function (data) {
+                alert('success');
+            });
+
+        //var req = {
+        //    method: 'POST',
+        //    url: '../Test/Adddetails',
+        //    data: Datas
+        //}
+        //$http(req).then(function (responce) {
+        //    // success function
+        //}, function (responce) {
+        //    // Failure Function
+        //});
+
+
+
+
+    };
+}]);
