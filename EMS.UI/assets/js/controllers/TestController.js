@@ -3,22 +3,16 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
     $scope.testdata = [];
     $scope.ButtonText = "Save";
 
+    $scope.Reset = function () {
 
-    $scope.SaveData = function () {
-        // use $.param jQuery function to serialize data from JSON or othe wise we write json.stringyfy (data) at time of passing data
-        var data = new Object();
-        data.NameVm = $scope.Name;
-        data.EmailVm = $scope.Email;
-        data.SubjectVm = $scope.Subject;
-        data.CommentVm = $scope.Comment;
+        $scope.Name = "";
+        $scope.Email = "";
+        $scope.Subject = "";
+        $scope.Comment = "";
+        $('#NameTxt').text = "";
 
-        $http.post("../Test/Adddetails", data)
-            .success(function (data) {
-                alert('success');
-            });
 
     };
-
     $scope.GetDetails = function () {
         $http.get("../Test/GetData")
             .success(function (data) {
@@ -28,6 +22,25 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
 
     $scope.GetDetails();
 
+    $scope.SaveData = function () {
+
+            // use $.param jQuery function to serialize data from JSON or othe wise we write json.stringyfy (data) at time of passing data
+            var data = new Object();
+            data.NameVm = $scope.Name;
+            data.EmailVm = $scope.Email;
+            data.SubjectVm = $scope.Subject;
+            data.CommentVm = $scope.Comment;
+
+            $http.post("../Test/Adddetails", data)
+                .success(function (data) {
+                    alert('success');
+                });
+       
+            Reset();
+    };
+
+   
+
     $scope.EditDetails = function (testdata) {
         debugger;
         $scope.Name = testdata.NameVm;
@@ -36,4 +49,13 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
         $scope.Comment = testdata.CommentVm;
         $scope.ButtonText = "Update";
     };
+
+    $scope.Delete=function(){
+
+        $http.post("../Test/Deletedetails", testdata.NameVm)
+               .success(function (data) {
+                   alert('delete');
+               });
+    };
+
 }]);

@@ -21,9 +21,29 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
         [HttpPost]
         public JsonResult Adddetails(TestModel Datas)
         {
-            //testcontext Testcxt = new testcontext();
-            Testcxt.Detail.Add(Datas);
-            Testcxt.SaveChanges();
+
+            if (Datas != null)
+            {
+                string nam = Datas.NameVm;
+                TestModel tabtest = Testcxt.Detail.Where(x => x.NameVm == nam).FirstOrDefault();
+                if (tabtest != null)
+                {
+                    tabtest.NameVm = Datas.NameVm;
+                    tabtest.EmailVm = Datas.EmailVm;
+                    tabtest.SubjectVm = Datas.SubjectVm;
+                    tabtest.CommentVm = Datas.CommentVm;
+                    Testcxt.SaveChanges();
+
+                }
+                else
+                {
+                    Testcxt.Detail.Add(Datas);
+
+                    Testcxt.SaveChanges();
+                }
+
+            }
+           
             return new JsonResult();
         }
         [HttpGet]
@@ -31,23 +51,24 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
         {
             //List<TestModel> tst = new List<TestModel>();
            // tst = Testcxt.Detail.ToList();
-            var data = Testcxt.Detail.ToList();//------->This method is also correct
+            var data = Testcxt.Detail.ToList();
 
             return Json(data, JsonRequestBehavior.AllowGet);
             
         }
 
-        //[HttpGet]
-        //public JsonResult EditDetails(TestModel nam)
-        //{
-        //    //List<TestModel> tst = new List<TestModel>();
-        //    // tst = Testcxt.Detail.ToList();
-        //    var data = Testcxt.Detail.ToList();//------->This method is also correct
-
-        //    return Json(data, JsonRequestBehavior.AllowGet);
-
-        //}
-
+        [HttpPost]
+        public JsonResult Deletedetails(TestModel Nam)
+        {
+            if (Nam.NameVm != null)
+            {
+                TestModel obj = Testcxt.Detail.Where(x => x.NameVm == Nam.NameVm).FirstOrDefault();
+                Testcxt.Detail.Remove(obj);
+                Testcxt.SaveChanges();
+                            
+            }
+            return new JsonResult();
+        }
 
     }
 }
