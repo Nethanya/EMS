@@ -22,6 +22,85 @@
                                         <textarea placeholder="Comment" rows="3" class="form-control" ng-model="Comment"></textarea>
                                     </div>
                                     <button class="comment-btn" ng-click="SaveData()">Submit Comment</button>
+                              
+
+                                    @***@
+                                    <div id="gridSystemModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog " >
+                                           @* role="document"*@
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="gridModalLabel">View Details</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container-fluid bd-example-row">
+                                                        <div class="row">
+                                                            <table class="table-bordered table-striped col-lg-12">
+                                                                <thead>
+                                                                    <tr >
+                                                                        <th class="col-lg-2">Name</th>
+                                                                        <th class="col-lg-2">Email</th>
+                                                                        <th class="col-lg-2">Subject</th>
+                                                                        <th class="col-lg-4">Comment</th>
+                                                                        <th class="col-lg-2">Edit / Delete</th>
+                                                                    </tr>
+
+
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr ng-repeat="testdata in testdata" >
+                                                                        @*<td ><span ng-bind="testdata.EmailVm"></td>*@
+                                                                        <td >{{testdata.NameVm}}</td>
+                                                                        <td>{{testdata.EmailVm}}</td>
+                                                                        <td>{{testdata.SubjectVm}}</td>
+                                                                        <td>{{testdata.CommentVm}}</td>
+                                                                        <td >
+                                                                            <button >Edit</button>
+                                                                            <button>Delete</button>
+                                                                        </td>
+                                                                        
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                           @* <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>*@
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 
+                                         <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal"ng-click="GetDetails()">
+                                             View
+                                         </button>
+                                    
+
+
+
+
+                                    @***@
+
+
+
+
+                                  
+                                             
+                                    
+                                  
+
+
+
+                              
+
+
+
 
                                 </form>
                             </div>

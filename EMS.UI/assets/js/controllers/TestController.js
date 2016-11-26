@@ -1,8 +1,6 @@
 ﻿
 emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
-
-
-
+    $scope.testdata=[];
 
     $scope.SaveData = function () {
         alert('click');
@@ -14,32 +12,23 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
         data.SubjectVm = $scope.Subject;
         data.CommentVm = $scope.Comment;
 
-        //CAlling the service
-
-        //this.$http({
-        //    method: 'POST',
-        //    url: '../Test/Adddetails',
-        //    data: Datas
-
-        //});
-
         $http.post("../Test/Adddetails", data)
             .success(function (data) {
                 alert('success');
             });
+       
+    };
 
-        //var req = {
-        //    method: 'POST',
-        //    url: '../Test/Adddetails',
-        //    data: Datas
-        //}
-        //$http(req).then(function (responce) {
-        //    // success function
-        //}, function (responce) {
-        //    // Failure Function
-        //});
+    $scope.GetDetails = function () {
 
+      
+        $http.get("../Test/GetData")
+            .success(function (data) {
+                debugger;
+                $scope.testdata = data;
+                alert("fdfgdfgdfgd");
 
+            });
 
 
     };
