@@ -34,7 +34,20 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
             var data = Testcxt.Detail.ToList();//------->This method is also correct
 
             return Json(data, JsonRequestBehavior.AllowGet);
-            //return new JsonResult();
+            
         }
+
+        //[HttpGet]
+        //public JsonResult EditDetails(TestModel nam)
+        //{
+        //    //List<TestModel> tst = new List<TestModel>();
+        //    // tst = Testcxt.Detail.ToList();
+        //    var data = Testcxt.Detail.ToList();//------->This method is also correct
+
+        //    return Json(data, JsonRequestBehavior.AllowGet);
+
+        //}
+
+
     }
 }
