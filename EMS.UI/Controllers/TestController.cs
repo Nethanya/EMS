@@ -24,10 +24,11 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
 
             if (Datas != null)
             {
-                string nam = Datas.NameVm;
-                TestModel tabtest = Testcxt.Detail.Where(x => x.NameVm == nam).FirstOrDefault();
+                int id = Datas.IDVm;
+                TestModel tabtest = Testcxt.Detail.Where(x => x.IDVm == id).FirstOrDefault();
                 if (tabtest != null)
                 {
+                    tabtest.IDVm = Datas.IDVm;
                     tabtest.NameVm = Datas.NameVm;
                     tabtest.EmailVm = Datas.EmailVm;
                     tabtest.SubjectVm = Datas.SubjectVm;
@@ -58,15 +59,12 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
         }
 
         [HttpPost]
-        public JsonResult Deletedetails(TestModel Nam)
+        public JsonResult Deletedetails(TestModel dat)
         {
-            if (Nam.NameVm != null)
-            {
-                TestModel obj = Testcxt.Detail.Where(x => x.NameVm == Nam.NameVm).FirstOrDefault();
+                TestModel obj = Testcxt.Detail.Where(x => x. IDVm == dat.IDVm).FirstOrDefault();
                 Testcxt.Detail.Remove(obj);
                 Testcxt.SaveChanges();
-                            
-            }
+                           
             return new JsonResult();
         }
 

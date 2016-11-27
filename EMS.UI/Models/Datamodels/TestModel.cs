@@ -10,6 +10,7 @@ namespace EmployeeRegistrationusing_angular_and_mvc
     public class TestModel
     {
         [Key]
+        public int IDVm { get; set; }
         public string NameVm { get; set; }
         public string EmailVm { get; set; }
         public string SubjectVm { get; set; }
