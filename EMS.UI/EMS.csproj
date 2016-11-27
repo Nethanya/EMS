@@ -195,6 +195,7 @@
     <Content Include="assets\css\theme-color\pink-theme.css" />
     <Content Include="assets\css\theme-color\purple-theme.css" />
     <Content Include="assets\css\theme-color\red-theme.css" />
+    <Content Include="assets\css\toastr.min.css" />
     <Content Include="assets\images\amazon.png" />
     <Content Include="assets\images\blog-img-1.jpg" />
     <Content Include="assets\images\blog-img-2.jpg" />
@@ -255,6 +256,7 @@
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\js\jquery.mixitup.js" />
     <Content Include="assets\js\slick.js" />
+    <Content Include="assets\js\toastr.min.js" />
     <Content Include="assets\js\waypoints.js" />
     <Content Include="assets\js\wow.js" />
     <Content Include="Content\ANI.jpg" />

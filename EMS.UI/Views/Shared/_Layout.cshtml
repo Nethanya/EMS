@@ -16,6 +16,8 @@
     <link href="~/assets/css/style.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href="~/assets/css/toastr.min.css" rel="stylesheet" />
+
 
     <script src="~/assets/js/jquery.min.js"></script>
     <script src="~/assets/js/bootstrap.js"></script>
@@ -27,12 +29,13 @@
     <script type="text/javascript" src="~/assets/js/wow.js"></script>
     <script type="text/javascript" src="~/assets/js/bootstrap-progressbar.js"></script>
     <script type="text/javascript" src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/toastr.min.js"></script>
 
     <script src="~/assets/js/angular.js"></script>
     <script src="~/assets/js/angular-route.js"></script>
     <script src="~/assets/js/angular-resource.js"></script>
     <script src="~/assets/js/application/app.js"></script>
-
+   
 
 </head>
 <body ng-app="_emsApp">
@@ -208,6 +211,30 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        jQuery(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "progressBar": false,
+                "positionClass": "toast-custom",
+                "onclick": null,
+                "showDuration": "3000",
+                "hideDuration": "1000",
+                "timeOut": "10000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+            window.onload = disableBack();
+            function disableBack() { window.history.forward(); }
+        });
+
+    </script>
+
 </body>
 </html>
 

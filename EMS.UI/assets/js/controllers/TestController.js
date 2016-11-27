@@ -42,7 +42,7 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
 
  $http.post("../Test/Adddetails", data)
    .success(function (data) {
-       alert("Saved Sucessfully");
+       toastr.success("Record Saved Successfully");
      
    });
      $scope.Reset();
@@ -78,7 +78,7 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
   obj.IDVm = gblVal;
   $http.post("../Test/Deletedetails", obj)
     .success(function (data) {
-        alert("Record Deleted");
+        toastr.success("Record Deleted Succesfully");
         $scope.GetDetails();
     });
 
