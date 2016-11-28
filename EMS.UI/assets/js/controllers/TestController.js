@@ -4,6 +4,9 @@ var gblVal = '';
 
 emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
     $scope.testdata = [];
+   var NoRowsDisplay = 5;
+   var Totalrowcount = 0;
+   var setcurrentpage = 0;
     $scope.ButtonText = "Save";
 
   
@@ -11,7 +14,8 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
     
    $http.get("../Test/GetData")
      .success(function (data) {
-      $scope.testdata = data;
+         $scope.testdata = data;
+         $scope.Totalrowcount = data.TotalCount;
       });
 };
  $scope.GetDetails();

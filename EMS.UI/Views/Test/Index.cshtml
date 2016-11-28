@@ -10,7 +10,57 @@
                             <div class="contact-area-right">
 
                                 <div class="row">
-                                    <table class="table table-bordered table-striped col-lg-12">
+
+
+
+                                    <table class="table table-bordered table-striped col-lg-12"
+                                   enable-filtering="false"
+                                   tr-ng-grid=""
+                                   items="testdata"
+                                   page-items="NoRowsDisplay"
+                                   total-items="Totalrowcount"
+                                   current-page="setcurrentpage"
+                                   order-by="OrderBy" order-by-reverse="OrderByReversed"
+                                   on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+                                        @*filter-by="GlobalFilter"*@
+                                        <thead>
+                                            <tr>
+                                                <th class="col-lg-2">ID</th>
+                                                <th class="col-lg-2">Name</th>
+                                                <th class="col-lg-2">Email</th>
+                                                <th class="col-lg-2">Subject</th>
+                                                <th class="col-lg-2">Comment</th>
+                                                <th class="col-lg-2"></th>
+                                            </tr>
+
+
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="testdata in testdata">
+                                                <td>{{testdata.IDVm}}</td>
+                                                <td>{{testdata.NameVm}}</td>
+                                                <td>{{testdata.EmailVm}}</td>
+                                                <td>{{testdata.SubjectVm}}</td>
+                                                <td>{{testdata.CommentVm}}</td>
+                                                <td>
+                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="EditDetails(testdata)">EDIT</button>
+
+                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#delete " ng-click="DeleteData(testdata)">Delete</button>
+
+                                                    @*data-target="#delete"*@
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+
+
+
+
+                                    @*<table class="table table-bordered table-striped col-lg-12">
                                         <thead>
                                             <tr>
                                                 <th class="col-lg-2">ID</th>
@@ -40,9 +90,9 @@
 
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table>*@
 
-                                    <input type="hidden" ng-model="testdata.NameVm" />
+                                    @*<input type="hidden" ng-model="testdata.NameVm" />*@
                                     <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="AddNewItem()">Add New Item</button>
 
                                 </div>
