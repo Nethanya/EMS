@@ -64,9 +64,6 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
             var data = Testcxt.Detail;// by fdefault it is queryable 
             int totolRows = data.Count();
 
-         
-
-
             var paging = data.OrderBy(x => x.IDVm).Skip(dat.NoRowsVM * dat.CurrentPageVm).Take(dat.NoRowsVM);
 
 
@@ -80,7 +77,7 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
         {
             TestModel obj = Testcxt.Detail.Where(x => x.IDVm == dat.IDVm).FirstOrDefault();
             Testcxt.Detail.Remove(obj);
-            Testcxt.SaveChanges();
+            Testcxt.SaveChanges();    
 
             return new JsonResult();
         }
