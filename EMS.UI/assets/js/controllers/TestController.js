@@ -3,23 +3,39 @@ var gblVal = '';
 
 
 emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
+
+
     $scope.testdata = [];
-   var NoRowsDisplay = 5;
-   var Totalrowcount = 0;
-   var setcurrentpage = 0;
+    $scope.CurrentPageVm = 0; //PageIndex
+    $scope.NoRowsVM = 3;   //PageSize
+    $scope.SearchVM = "";
+    $scope.pfilterByFieldsVM = "";
+    $scope.pOrderByVM = "IDVm";    //SortBy
+    $scope.pOrderByReverseVM = false;  //SortDirection = 0
+  
     $scope.ButtonText = "Save";
+   
+ 
+
+    $scope.onServerSideItemsRequested = function (currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse) {
+      
+        var datobj = new Object();
+        datobj.CurrentPageVm = currentPage;
+        datobj.NoRowsVM = pageItems;
+        datobj.SearchVM = filterBy;
+        datobj.pOrderByVM = orderBy;
+        datobj.pOrderByReverseVM = orderByReverse;
+        $http.post("../Test/GetData", datobj)
+        .success(function (success) {
+            $scope.testdata = success.List;
+            $scope.TotalRowCount = success.TotalRows;
+            
+        });
+       
+    };
+   
 
   
-    $scope.GetDetails = function () {
-    
-   $http.get("../Test/GetData")
-     .success(function (data) {
-         $scope.testdata = data;
-         $scope.Totalrowcount = data.TotalCount;
-      });
-};
- $scope.GetDetails();
-
  $scope.Reset = function () {
      if (gblVal != "") {
          $scope.EditDetails();
@@ -36,7 +52,7 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
 };
 
  $scope.SaveData = function () {
-     debugger;
+   //  debugger;
  var data = new Object();
   data.IDVm = $scope.ids;
   data.NameVm = $scope.Name;
@@ -54,6 +70,7 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
 
  
  $scope.EditDetails = function (testdata) {
+     debugger;
   $scope.ids = testdata.IDVm;
   $scope.Name = testdata.NameVm;
   $scope.Email = testdata.EmailVm;
@@ -83,17 +100,19 @@ emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
   $http.post("../Test/Deletedetails", obj)
     .success(function (data) {
         toastr.success("Record Deleted Succesfully");
-        $scope.GetDetails();
+        //$scope.GetDetails();
     });
 
  
  };
 
  $scope.Close = function () {
-     debugger;
+    
      gblVal = "";
-     $scope.GetDetails();
+    
 
  };
+
+
 
 }]);

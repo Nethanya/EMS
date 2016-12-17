@@ -11,45 +11,50 @@
 
                                 <div class="row">
 
-
-
                                     <table class="table table-bordered table-striped col-lg-12"
-                                   enable-filtering="false"
-                                   tr-ng-grid=""
-                                   items="testdata"
-                                   page-items="NoRowsDisplay"
-                                   total-items="Totalrowcount"
-                                   current-page="setcurrentpage"
-                                   order-by="OrderBy" order-by-reverse="OrderByReversed"
-                                   on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
-                                        @*filter-by="GlobalFilter"*@
+                                           enable-filtering="false"
+                                           tr-ng-grid=""
+                                           items="testdata"
+                                           page-items="NoRowsVM"
+                                           total-items="TotalRowCount"
+                                           filter-by=""
+                                           current-page="CurrentPageVm"
+                                           order-by="IDVm" 
+                                           order-by-reverse="true"
+                                           on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+                                   
+                                        @*<table class="table table-bordered table-striped col-lg-12"
+                                            tr-ng-grid=""
+                                            items="testdata"
+                                             on-data-required="GetDetails()">*@
+                                             
+
                                         <thead>
                                             <tr>
-                                                <th class="col-lg-2">ID</th>
-                                                <th class="col-lg-2">Name</th>
-                                                <th class="col-lg-2">Email</th>
-                                                <th class="col-lg-2">Subject</th>
-                                                <th class="col-lg-2">Comment</th>
-                                                <th class="col-lg-2"></th>
+                                                <th display-name="ID" field-name="IDVm" enable-filtering="false" enable-sorting="false"></th>
+                                                <th display-name="Name" field-name="NameVm" enable-filtering="false" enable-sorting="true">
+                                                </th>
+                                                <th display-name="Email" field-name="EmailVm" enable-filtering="false" enable-sorting="true">
+                                                </th>
+                                                <th display-name="Subject" field-name="SubjectVm" enable-filtering="false" enable-sorting="true">
+                                                </th>
+                                                <th display-name="Comment" field-name="CommentVm" enable-filtering="false" enable-sorting="true">
+                                                </th>
+
                                             </tr>
 
-
                                         </thead>
+
                                         <tbody>
-                                            <tr ng-repeat="testdata in testdata">
-                                                <td>{{testdata.IDVm}}</td>
-                                                <td>{{testdata.NameVm}}</td>
-                                                <td>{{testdata.EmailVm}}</td>
-                                                <td>{{testdata.SubjectVm}}</td>
-                                                <td>{{testdata.CommentVm}}</td>
+                                            <tr>
+
                                                 <td>
-                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="EditDetails(testdata)">EDIT</button>
+                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="EditDetails(gri)">EDIT</button>
 
                                                     <button type="button" class="comment-btn" data-toggle="modal" data-target="#delete " ng-click="DeleteData(testdata)">Delete</button>
 
-                                                    @*data-target="#delete"*@
-                                                </td>
 
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -57,40 +62,7 @@
 
 
 
-
-
-
-                                    @*<table class="table table-bordered table-striped col-lg-12">
-                                        <thead>
-                                            <tr>
-                                                <th class="col-lg-2">ID</th>
-                                                <th class="col-lg-2">Name</th>
-                                                <th class="col-lg-2">Email</th>
-                                                <th class="col-lg-2">Subject</th>
-                                                <th class="col-lg-2">Comment</th>
-                                                <th class="col-lg-2"></th>
-                                            </tr>
-
-
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="testdata in testdata">
-                                                <td>{{testdata.IDVm}}</td>
-                                                <td>{{testdata.NameVm}}</td>
-                                                <td>{{testdata.EmailVm}}</td>
-                                                <td>{{testdata.SubjectVm}}</td>
-                                                <td>{{testdata.CommentVm}}</td>
-                                                <td>
-                                                   <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="EditDetails(testdata)">EDIT</button>
-                                               
-                                                    <button type="button" class="comment-btn"data-toggle="modal"data-target="#delete "ng-click="DeleteData(testdata)" >Delete</button>
-                                                   
-                                                    @*data-target="#delete"*@ 
-                                                </td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>*@
+                           
 
                                     @*<input type="hidden" ng-model="testdata.NameVm" />*@
                                     <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="AddNewItem()">Add New Item</button>
@@ -109,7 +81,7 @@
             @* role="document"*@
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"ng-click="Close()"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="Close()"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="gridModalLabel">View Details</h4>
                 </div>
                 <div class="modal-body">
@@ -117,24 +89,24 @@
 
                         <form action="" class="comments-form contact-form">
                             <div class="form-group">
-                                <input type="text " id="ID" class="form-control " placeholder="ID" ng-model="ids"readonly>
+                                <input type="text " id="ID" class="form-control " placeholder="ID" ng-model="ids" >
                             </div>
 
                             <div class="form-group">
-                                <input type="text"id="NameTxt" class="form-control" placeholder="Your Name" ng-model="Name">
+                                <input type="text" id="NameTxt" class="form-control" placeholder="Your Name" ng-model="Name">
                             </div>
                             <div class="form-group">
-                                <input type="email"id="EmailTxt" class="form-control" placeholder="Email" ng-model="Email">
+                                <input type="email" id="EmailTxt" class="form-control" placeholder="Email" ng-model="Email">
                             </div>
                             <div class="form-group">
-                                <input type="text"id="SubTxt" class="form-control" placeholder="Subject" ng-model="Subject">
+                                <input type="text" id="SubTxt" class="form-control" placeholder="Subject" ng-model="Subject">
                             </div>
                             <div class="form-group">
-                                <textarea placeholder="Comment" id="CommTxt"  rows="3" class="form-control" ng-model="Comment"></textarea>
+                                <textarea placeholder="Comment" id="CommTxt" rows="3" class="form-control" ng-model="Comment"></textarea>
                             </div>
-                           <input type="button" class="comment-btn" ng-click="SaveData()" value="{{ButtonText}}" />
-                                                     
-                            <input type="button" class="comment-btn" ng-click="Reset()" value="Reset"/>
+                            <input type="button" class="comment-btn" ng-click="SaveData()" value="{{ButtonText}}" />
+
+                            <input type="button" class="comment-btn" ng-click="Reset()" value="Reset" />
 
                         </form>
 
@@ -164,7 +136,7 @@
                     <p>Do you want to delete the record ?&hellip;</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="comment-btn" data-dismiss="modal"ng-click="ConfirmDelete()">Yes</button>
+                    <button type="button" class="comment-btn" data-dismiss="modal" ng-click="ConfirmDelete()">Yes</button>
                     <button type="button" class="comment-btn">No</button>
                 </div>
             </div><!-- /.modal-content -->

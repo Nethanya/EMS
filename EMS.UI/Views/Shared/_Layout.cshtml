@@ -17,8 +17,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href="~/assets/css/toastr.min.css" rel="stylesheet" />
+    <link href="~/assets/css/trNgGrid.css" rel="stylesheet" />
 
-
+  
     <script src="~/assets/js/jquery.min.js"></script>
     <script src="~/assets/js/bootstrap.js"></script>
     <script type="text/javascript" src="~/assets/js/slick.js"></script>
@@ -30,12 +31,13 @@
     <script type="text/javascript" src="~/assets/js/bootstrap-progressbar.js"></script>
     <script type="text/javascript" src="~/assets/js/custom.js"></script>
     <script src="~/assets/js/toastr.min.js"></script>
+    
 
     <script src="~/assets/js/angular.js"></script>
     <script src="~/assets/js/angular-route.js"></script>
     <script src="~/assets/js/angular-resource.js"></script>
     <script src="~/assets/js/application/app.js"></script>
-   
+    <script src="~/assets/js/trNgGrid.js"></script>
 
 </head>
 <body ng-app="_emsApp">
@@ -164,22 +166,36 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                        <li><a href="/EmployeeRegistration/Index">Home</a></li>
-                        <li><a href="#">Feature</a></li>
+                        <li class="active"><a href="/EmployeeRegistration/Index">Home</a></li>
+                        @*<li><a href="#">Feature</a></li>
                         <li><a href="#">Service</a></li>
-                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Portfolio</a></li>*@
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="fa fa-angle-down"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registrations <span class="fa fa-angle-down"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Blog Archive</a></li>
-                                <li><a href="#">Blog Single with Left Sidebar</a></li>
-                                <li><a href="#">Blog Single with Right Sidebar</a></li>
-                                <li><a href="#">Blog Single with out Sidebar</a></li>
+                                <li><a href="/EmployeeRegistration/EmployeeRegistration">Employee Registration</a></li>
+                                <li><a href="#">Company Registration</a></li>
+                                <li><a href="#">Contractor Registration</a></li>
+                                <li><a href="#">Project Registration</a></li>
+                                <li><a href="#">Material Purchase Registration</a></li>
+                                <li><a href="#">Employee WorkSheet</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">404 Page</a></li>
-                        <li class="active"><a href="#">Contact</a></li>
-                        <li><a href="/EmployeeRegistration/EmployeeRegistration">Employee Registration</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search <span class="fa fa-angle-down"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Search Project & Employee</a></li>
+                                <li><a href="#">Search Project Contractors</a></li>
+                                <li><a href="#">Search Project  Material account</a></li>
+                                <li><a href="#">Project Expense</a></li>
+                                <li><a href="#">Variations Detail</a></li>
+                                <li><a href="#">Invoice Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Employee WorkSheet</a></li>
+                        @*<li><a href="#">404 Page</a></li>
+                        <li ><a href="#">Contact</a></li>*@
+                       
                         <li><a href="/Test/Index">Test Page</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->

@@ -1,5 +1,6 @@
 ﻿
 using EmployeeRegistrationusing_angular_and_mvc.Models;
+using EmployeeRegistrationusing_angular_and_mvc.Models.Datamodels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,13 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
     public class TestController : Controller
     {
         testcontext Testcxt = new testcontext();
-        //
         // GET: /Test/
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult TrNgGridExample()
         {
             return View();
         }
@@ -25,7 +30,13 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
             if (Datas != null)
             {
                 int id = Datas.IDVm;
-                TestModel tabtest = Testcxt.Detail.Where(x => x.IDVm == id).FirstOrDefault();
+                TestModel tabtest = null;
+
+                if (Testcxt.Detail.Count() > 0)
+                {
+                    tabtest = Testcxt.Detail.Where(x => x.IDVm == id).FirstOrDefault();
+                }
+
                 if (tabtest != null)
                 {
                     tabtest.IDVm = Datas.IDVm;
@@ -34,39 +45,52 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
                     tabtest.SubjectVm = Datas.SubjectVm;
                     tabtest.CommentVm = Datas.CommentVm;
                     Testcxt.SaveChanges();
-
                 }
                 else
                 {
                     Testcxt.Detail.Add(Datas);
-
                     Testcxt.SaveChanges();
                 }
 
             }
-           
+
             return new JsonResult();
         }
-        [HttpGet]
-        public JsonResult GetData()
-        {
-            //List<TestModel> tst = new List<TestModel>();
-           // tst = Testcxt.Detail.ToList();
-            var data = Testcxt.Detail.ToList();
 
-            return Json(data, JsonRequestBehavior.AllowGet);
-            
+
+        [HttpPost]
+        public JsonResult GetData(TrngData dat)
+        {
+            var data = Testcxt.Detail;// by fdefault it is queryable 
+            int totolRows = data.Count();
+
+         
+
+
+            var paging = data.OrderBy(x => x.IDVm).Skip(dat.NoRowsVM * dat.CurrentPageVm).Take(dat.NoRowsVM);
+
+
+            return Json(new ResultClass { List= paging.ToList(), TotalRows = totolRows }, JsonRequestBehavior.AllowGet);
+            //return Json( dat.List = paging.ToList(), dat.TotalRows = totolRows, JsonRequestBehavior.AllowGet);
+
         }
 
         [HttpPost]
         public JsonResult Deletedetails(TestModel dat)
         {
-                TestModel obj = Testcxt.Detail.Where(x => x. IDVm == dat.IDVm).FirstOrDefault();
-                Testcxt.Detail.Remove(obj);
-                Testcxt.SaveChanges();
-                           
+            TestModel obj = Testcxt.Detail.Where(x => x.IDVm == dat.IDVm).FirstOrDefault();
+            Testcxt.Detail.Remove(obj);
+            Testcxt.SaveChanges();
+
             return new JsonResult();
         }
+
+    }
+
+    public class ResultClass
+    {
+        public IEnumerable<TestModel> List { get; set; }
+        public int TotalRows { get; set; }
 
     }
 }
