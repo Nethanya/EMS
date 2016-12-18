@@ -18,10 +18,10 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
             return View();
         }
 
-        public ActionResult TrNgGridExample()
-        {
-            return View();
-        }
+        //public ActionResult TrNgGridExample()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public JsonResult Adddetails(TestModel Datas)
@@ -63,11 +63,14 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
         {
             var data = Testcxt.Detail;// by fdefault it is queryable 
             int totolRows = data.Count();
+            
+            var qry = data
+                .Where(item => string.IsNullOrEmpty(dat.SearchVM) || (item.NameVm.Contains(dat.SearchVM))||
+               (item.SubjectVm.Contains(dat.SearchVM))||(item.CommentVm.Contains(dat.SearchVM))||(item.EmailVm.Contains(dat.SearchVM)))
+               .OrderBy(x => x.IDVm).Skip(dat.NoRowsVM * dat.CurrentPageVm).Take(dat.NoRowsVM);
 
-            var paging = data.OrderBy(x => x.IDVm).Skip(dat.NoRowsVM * dat.CurrentPageVm).Take(dat.NoRowsVM);
 
-
-            return Json(new ResultClass { List= paging.ToList(), TotalRows = totolRows }, JsonRequestBehavior.AllowGet);
+            return Json(new ResultClass { List= qry.ToList(), TotalRows = totolRows }, JsonRequestBehavior.AllowGet);
             //return Json( dat.List = paging.ToList(), dat.TotalRows = totolRows, JsonRequestBehavior.AllowGet);
 
         }

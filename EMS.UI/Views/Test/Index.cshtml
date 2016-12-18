@@ -6,9 +6,21 @@
             <div class="col-md-12">
                 <div class="cotact-area">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="contact-area-right">
+                        <div class="form-group col-md-3 input-group pull-right">
+                           
+                            @*<input type="text" id="SearchTxt" class="form-control" placeholder="Search" ng-model="Search">*@
+                            <div class="input-group">
+                                <input type="text"id="SearchTxt" class="form-control" placeholder="Search" ng-model="SearchVM" />
+                                <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
 
+                        <div class="col-md-12">
+
+                            <div class="contact-area-right">
+                               
                                 <div class="row">
 
                                     <table class="table table-bordered table-striped col-lg-12"
@@ -17,17 +29,12 @@
                                            items="testdata"
                                            page-items="NoRowsVM"
                                            total-items="TotalRowCount"
-                                           filter-by=""
+                                           filter-by="SearchVM"
                                            current-page="CurrentPageVm"
                                            order-by="IDVm" 
                                            order-by-reverse="true"
                                            on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
-                                   
-                                        @*<table class="table table-bordered table-striped col-lg-12"
-                                            tr-ng-grid=""
-                                            items="testdata"
-                                             on-data-required="GetDetails()">*@
-                                             
+                                       
 
                                         <thead>
                                             <tr>
@@ -49,9 +56,9 @@
                                             <tr>
 
                                                 <td>
-                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="EditDetails(gri)">EDIT</button>
+                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="EditDetails(gridItem)">EDIT</button>
 
-                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#delete " ng-click="DeleteData(testdata)">Delete</button>
+                                                    <button type="button" class="comment-btn" data-toggle="modal" data-target="#delete " ng-click="DeleteData(gridItem)">Delete</button>
 
 
                                                 </td>
@@ -60,13 +67,9 @@
                                     </table>
 
 
-
-
-                           
-
                                     @*<input type="hidden" ng-model="testdata.NameVm" />*@
                                     <button type="button" class="comment-btn" data-toggle="modal" data-target="#gridSystemModal" ng-click="AddNewItem()">Add New Item</button>
-
+                                    <button type="button" class="comment-btn" ng-click="ResetGrid()">Reset</button>
                                 </div>
                             </div>
                         </div>
