@@ -13,10 +13,10 @@ namespace EmployeeRegistrationusing_angular_and_mvc
 
 
         [Key]
-        public int Id { get; set; }
+        public String Id { get; set; }
         [Required]
         public string EmployeeName { get; set; }
-        public string EmployeeId { get; set; }
+     
         [Required]
         public int Age { get; set; }
         [Required]
@@ -29,8 +29,7 @@ namespace EmployeeRegistrationusing_angular_and_mvc
         [Required]
         public string PhoneNumber{get;set;}
         public string EmailId { get; set; }
-        public string PostalCode { get; set; }
-       // public string UserName { get; set; }
+       
         [Required]
         public string PassPortNumber { get; set; }
         [Required]
@@ -40,20 +39,16 @@ namespace EmployeeRegistrationusing_angular_and_mvc
         public string LicenceNumber { get; set; }
         [Required]
         public DateTime EmiratesExpiryDate { get; set; }
-        public string Bloodgroup { get; set; }
         [Required]
         public string Nationality { get; set; }
         [Required]
         public DateTime DOJ { get; set; }
         [Required]
         public string Qualification { get; set; }
-        //public string YearCompleted { get; set; }
-     
-       // public string Experience { get; set; }
         [Required]
         public string Role { get; set; }
 
-        public string Department { get; set; }
+        public string Designation { get; set; }
         [Required]
         public Double Salary { get; set; }
         [Required]
@@ -63,8 +58,7 @@ namespace EmployeeRegistrationusing_angular_and_mvc
         public string ContactName { get;set; }
         [Required]
         public string ContactPhone { get; set; }
-        [Required]
-        public string Relation { get; set; }
+      
         
         public string IsActive { get; set; }
     

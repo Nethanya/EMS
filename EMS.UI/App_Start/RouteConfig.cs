@@ -16,7 +16,7 @@ namespace EmployeeRegistrationusing_angular_and_mvc
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "EmployeeRegistration", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "EmployeeRegistration", action = "EmployeeRegistration", id = UrlParameter.Optional }
             );
         }
     }

@@ -1,6 +1,6 @@
 ﻿
 var gblVal = '';
-
+var gblarr = [];
 
 emsApp.controller('mycntlr', ['$scope', '$http', function ($scope, $http) {
 
@@ -51,21 +51,6 @@ $http.post("../Test/GetData", datobj)
      $scope.LoadDetail(0, 3, "", "", "", false);
  };
 
- $scope.Reset = function () {
-     if (gblVal != "") {
-         $scope.EditDetails();
-    
- }
-     else {
-         $scope.ids = "";
-         $scope.Name = "";
-         $scope.Email = "";
-         $scope.Subject = "";
-         $scope.Comment = "";
-
- }
-};
-
  $scope.SaveData = function () {
    //  debugger;
  var data = new Object();
@@ -90,12 +75,25 @@ $http.post("../Test/GetData", datobj)
   $scope.Subject = dat.SubjectVm;
   $scope.Comment = dat.CommentVm;
   $scope.ButtonText = "Update";
+  gblarr = dat;
   gblVal =dat.IDVm;
     };
 
+ $scope.Reset = function () {
+    if (gblVal != "") {
+       $scope.EditDetails(gblarr);
+       gblarr = [];
+     }
+     else {
+         $scope.ids = "";
+         $scope.Name = "";
+         $scope.Email = "";
+         $scope.Subject = "";
+         $scope.Comment = "";
+     }
+ };
  $scope.DeleteData = function (dats) {
-     debugger;
-   gblVal = dats.IDVm;
+     gblVal = dats.IDVm;
  };
 
  $scope.AddNewItem = function () {

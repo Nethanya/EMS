@@ -18,7 +18,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href="~/assets/css/toastr.min.css" rel="stylesheet" />
     <link href="~/assets/css/trNgGrid.css" rel="stylesheet" />
-
+    <link href="~/assets/css/bootstrap-datepicker3.css" rel="stylesheet" />
   
     <script src="~/assets/js/jquery.min.js"></script>
     <script src="~/assets/js/bootstrap.js"></script>
@@ -31,7 +31,8 @@
     <script type="text/javascript" src="~/assets/js/bootstrap-progressbar.js"></script>
     <script type="text/javascript" src="~/assets/js/custom.js"></script>
     <script src="~/assets/js/toastr.min.js"></script>
-    
+
+    <script src="~/assets/js/bootstrap-datepicker.min.js"></script>
 
     <script src="~/assets/js/angular.js"></script>
     <script src="~/assets/js/angular-route.js"></script>
@@ -47,7 +48,7 @@
     <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
     <header id="header">
 
-        <div class="header-top">
+        @*<div class="header-top">
             <div class="container">
                 <form action="">
                     <div id="search">
@@ -58,9 +59,9 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>*@
         <!-- header bottom -->
-        <div class="header-bottom">
+        @*<div class="header-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-xs-6">
@@ -88,7 +89,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </header>
     <div aria-hidden="false" role="dialog" tabindex="-1" id="login-form" class="modal leread-modal fade in">
         <div class="modal-dialog">
@@ -160,49 +161,50 @@
                     </button>
                     <!-- LOGO -->
                     <!-- TEXT BASED LOGO -->
-                    <a class="navbar-brand" href="/EmployeeRegistration/Index">Employee Management System</a>
+                    <a class="navbar-brand" >Employee Management System</a>
+                   @* href="/EmployeeRegistration/Index"*@
                     <!-- IMG BASED LOGO  -->
                     <!-- <a class="navbar-brand" href="index.html"><img src="~/assets/images/logo.png" alt="logo"></a> -->
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-                        <li class="active"><a href="/EmployeeRegistration/Index">Home</a></li>
-                        @*<li><a href="#">Feature</a></li>
-                        <li><a href="#">Service</a></li>
-                        <li><a href="#">Portfolio</a></li>*@
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registrations <span class="fa fa-angle-down"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="/EmployeeRegistration/EmployeeRegistration">Employee Registration</a></li>
-                                <li><a href="#">Company Registration</a></li>
-                                <li><a href="#">Contractor Registration</a></li>
-                                <li><a href="#">Project Registration</a></li>
-                                <li><a href="#">Material Purchase Registration</a></li>
-                                <li><a href="#">Employee WorkSheet</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search <span class="fa fa-angle-down"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Search Project & Employee</a></li>
-                                <li><a href="#">Search Project Contractors</a></li>
-                                <li><a href="#">Search Project  Material account</a></li>
-                                <li><a href="#">Project Expense</a></li>
-                                <li><a href="#">Variations Detail</a></li>
-                                <li><a href="#">Invoice Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Employee WorkSheet</a></li>
-                        @*<li><a href="#">404 Page</a></li>
-                        <li ><a href="#">Contact</a></li>*@
-                       
-                        <li><a href="/Test/Index">Test Page</a></li>
-                    </ul>
+                        <li class="active"><a href="#">Home</a></li>
+                       @* <a href="/EmployeeRegistration/Index">*@
+                            @*<li><a href="#">Feature</a></li>*@
+          
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registrations <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/EmployeeRegistration/EmployeeRegistration">Employee Registration</a></li>
+                                    <li><a href="#">Company Registration</a></li>
+                                    <li><a href="#">Contractor Registration</a></li>
+                                    <li><a href="#">Project Registration</a></li>
+                                    <li><a href="#">Material Purchase Registration</a></li>
+                                    <li><a href="#">Employee WorkSheet</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Search Project & Employee</a></li>
+                                    <li><a href="#">Search Project Contractors</a></li>
+                                    <li><a href="#">Search Project  Material account</a></li>
+                                    <li><a href="#">Project Expense</a></li>
+                                    <li><a href="#">Variations Detail</a></li>
+                                    <li><a href="#">Invoice Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Employee WorkSheet</a></li>
+                            @*<li><a href="#">404 Page</a></li>
+            <li ><a href="#">Contact</a></li>*@
+
+                            <li><a href="/Test/Index">Test Page</a></li>
+</ul>
                 </div><!--/.nav-collapse -->
-                <a href="#" id="search-icon">
+                @*<a href="#" id="search-icon">
                     <i class="fa fa-search">
                     </i>
-                </a>
+                </a>*@
             </div>
         </nav>
     </section>
@@ -215,7 +217,7 @@
                         <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                @*<div class="col-md-6 col-sm-6">
                     <div class="footer-right">
                         <a href="index.html"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
@@ -223,7 +225,7 @@
                         <a href="#"><i class="fa fa-linkedin"></i></a>
                         <a href="#"><i class="fa fa-pinterest"></i></a>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
     </footer>

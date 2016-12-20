@@ -11,22 +11,12 @@ namespace EmployeeRegistrationusing_angular_and_mvc.Controllers
     {
         EmployeeMasterContext EmpCntxt = new EmployeeMasterContext();
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        //
-        // GET: /EmployeeRegistration/
         public ActionResult EmployeeRegistration()
         {
             return View();
         }
-        public string Adduser(EmployeeMaster EmployeeDetails)//here the  EmployeeMaster(table name) is the name inside dbset and EmployeeDetails is the parameter passed from angular js page.
-        {
-            EmpCntxt.Employee.Add(EmployeeDetails);//it is the name of given to the dbset
-            EmpCntxt.SaveChanges();
-            return "Employee Registered Successfully";
-        }
+
+      
+    
 	}
 }
