@@ -164,6 +164,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeRegistrationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectRegistrationController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Models\Datamodels\EmployeeMaster.cs" />
     <Compile Include="Global.asax.cs">
@@ -1196,9 +1197,11 @@
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Test\TrNgGridExample.cshtml" />
     <Content Include="Views\EmployeeRegistration\EmployeeRegistration.cshtml" />
+    <Content Include="Views\ProjectRegistration\ProjectRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

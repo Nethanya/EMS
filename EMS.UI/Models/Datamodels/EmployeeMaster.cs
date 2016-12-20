@@ -13,7 +13,7 @@ namespace EmployeeRegistrationusing_angular_and_mvc
 
 
         [Key]
-        public String Id { get; set; }
+        public String EmployeId { get; set; }
         [Required]
         public string EmployeeName { get; set; }
      
@@ -21,22 +21,21 @@ namespace EmployeeRegistrationusing_angular_and_mvc
         public int Age { get; set; }
         [Required]
         public DateTime DOB { get; set; }
-        public string StreetAddress { get; set; }
         [Required]
-        public string PermanentAddress { get; set; }
-        [Required]
-        public string Gender { get;set; }
-        [Required]
-        public string PhoneNumber{get;set;}
+        public string Gender { get; set; }
         public string EmailId { get; set; }
-       
         [Required]
         public string PassPortNumber { get; set; }
         [Required]
         public DateTime PassportExpiryDate { get; set; }
         [Required]
+        public string PhoneNumber { get; set; }
+         
+       
+       
+       
+        [Required]
         public string EmiratesId { get; set; }
-        public string LicenceNumber { get; set; }
         [Required]
         public DateTime EmiratesExpiryDate { get; set; }
         [Required]
@@ -45,21 +44,18 @@ namespace EmployeeRegistrationusing_angular_and_mvc
         public DateTime DOJ { get; set; }
         [Required]
         public string Qualification { get; set; }
-        [Required]
-        public string Role { get; set; }
-
+      
         public string Designation { get; set; }
         [Required]
         public Double Salary { get; set; }
         [Required]
         public int EmployeeType { get; set; }
-        //public string SupplierCompanyName { get; set; }
-        [Required]
-        public string ContactName { get;set; }
-        [Required]
-        public string ContactPhone { get; set; }
-      
+        public string YearCompleted { get; set; }
         
+        [Required]
+        public string PermanentAddress { get; set; }
+
+
         public string IsActive { get; set; }
     
     }
