@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CompanyRegistrationController.cs" />
     <Compile Include="Controllers\EmployeeRegistrationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectRegistrationController.cs" />
@@ -1198,9 +1199,11 @@
     <Content Include="Views\Test\TrNgGridExample.cshtml" />
     <Content Include="Views\EmployeeRegistration\EmployeeRegistration.cshtml" />
     <Content Include="Views\ProjectRegistration\ProjectRegistration.cshtml" />
+    <Content Include="Views\CompanyRegistration\CompanyRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Contractors\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
